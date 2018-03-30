@@ -1,3 +1,5 @@
+import java.util.HashMap;
+import java.util.Map;
 
 public class Subasta {
 	private String objetoPujado;
@@ -6,6 +8,7 @@ public class Subasta {
 	public Subasta(String objetoPujado, Persona dueño) {
 		this.objetoPujado = objetoPujado;
 		this.dueño = dueño;
+		Map<Integer, Puja> listadoPuja=new HashMap<Integer, Puja>();
 	}
 
 	public String getObjetoPujado() {

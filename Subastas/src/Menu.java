@@ -6,6 +6,8 @@ public class Menu {
 
 	public static void MenuPrincipal() throws NumberFormatException, IOException {
 		int n=0;
+		String nombre;
+		MetodosGenerales mg=new MetodosGenerales();
 		BufferedReader teclado=new BufferedReader(new InputStreamReader(System.in));
 		do {
 		System.out.println(
@@ -14,10 +16,17 @@ public class Menu {
 		n=Integer.parseInt(teclado.readLine());
 		switch(n) {
 		case 1:
+			mg.CrearUsuario();
 			break;
 		case 2:
+			mg.listaUsuarios();
+			System.out.println("Introduce el nombre del usuario que quieres eliminar");
+			nombre=teclado.readLine();
+			nombre.toLowerCase();
+			mg.eliminarUsuario(nombre);
 			break;
 		case 3:
+			mg.listaUsuarios();
 			break;
 		case 4:
 			break;
