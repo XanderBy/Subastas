@@ -4,11 +4,17 @@ import java.util.Map;
 public class Subasta {
 	private String objetoPujado;
 	private Persona dueño;
+	Map<Integer, Puja> listadoPuja = new HashMap<Integer, Puja>();
 
 	public Subasta(String objetoPujado, Persona dueño) {
 		this.objetoPujado = objetoPujado;
 		this.dueño = dueño;
-		Map<Integer, Puja> listadoPuja=new HashMap<Integer, Puja>();
+
+	}
+
+	
+	public String printSubasta() {
+		return "Subasta [objetoPujado=" + objetoPujado + ", dueño=" + dueño + "]";
 	}
 
 	public String getObjetoPujado() {

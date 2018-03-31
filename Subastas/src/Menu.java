@@ -29,7 +29,11 @@ public class Menu {
 			mg.listaUsuarios();
 			break;
 		case 4:
-			mg.crearSubasta();
+			mg.listaUsuarios();
+			System.out.println("Escribe el nombre del usuario");
+			nombre = teclado.readLine();
+			
+			mg.crearSubasta(mg.listadoUsuarios.get(nombre),nombre);
 			break;
 		case 5:
 			break;

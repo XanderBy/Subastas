@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class MetodosGenerales {
 	Map<String, Usuario> listadoUsuarios = new HashMap<String, Usuario>();
-	Dueño d1=new Dueño();
+
 	public MetodosGenerales() {
 
 	}
@@ -52,31 +52,36 @@ public class MetodosGenerales {
 
 	public void listaUsuarios() {
 		Iterator it = listadoUsuarios.keySet().iterator();
-		while(it.hasNext()){
-		String key = (String) it.next();
-		System.out.println(listadoUsuarios.get(key).print());
+		while (it.hasNext()) {
+			String key = (String) it.next();
+			System.out.println(listadoUsuarios.get(key).print(listadoUsuarios.get(key)));
 		}
 
 	}
 
-	public void crearSubasta() throws IOException {
+	public void crearSubasta(Usuario u, String nombre) throws IOException {
 		String objeto;
-		String nombre;
 		BufferedReader teclado = new BufferedReader(new InputStreamReader(System.in));
-		listaUsuarios();
+
 		System.out.println("Escribe el objeto subastado");
 		objeto = teclado.readLine();
-		System.out.println("Escribe el nombre del usuario");
-		nombre = teclado.readLine();
-		
+
 		Subasta s1 = new Subasta(objeto, listadoUsuarios.get(nombre));
-		d1.listadoSubastas.put(objeto, s1);
-		
+		u.listadoSubastas.put(objeto, s1);
+
 	}
 
+	public String listadoSubastas(Usuario d) {
+		Iterator it = d.listadoSubastas.keySet().iterator();
+		while (it.hasNext()) {
+			String key = (String) it.next();
+			return d.listadoSubastas.get(key).printSubasta();
+		}
+		return "";
+	}
 
-	public void pujar() {
-
+	public void pujar(int cantidad, Usuario u) {
+		
 	}
 
 	public void pujaMayor() {
