@@ -5,6 +5,10 @@ public class Usuario extends Persona {
 		super(saldo, nombre);
 		
 	}
+
+	public String print() {
+		return "Usuario [getSaldo()=" + getSaldo() + ", getNombre()=" + getNombre() + "]";
+	}
 	
 	
 

@@ -2,7 +2,10 @@
 public class Persona {
 	private int saldo;
 	private String nombre;
-
+	
+	public Persona() {
+		
+	}
 	public Persona(int saldo, String nombre) {
 		super();
 		this.saldo = saldo;
