@@ -80,10 +80,13 @@ public class MetodosGenerales {
 		return "";
 	}
 
-	public void pujar(int cantidad, Usuario u) {
+	public void pujar(Usuario u, String nombre, Puja p) {
+		
+			u.listadoSubastas.get(nombre).listadoPuja.add(p);
+		
 		
 	}
-
+	
 	public void pujaMayor() {
 
 	}

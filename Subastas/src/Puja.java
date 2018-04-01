@@ -1,12 +1,22 @@
 
 public class Puja {
 	private int cantidad;
-	private Persona pujador;
+	private Usuario pujador;
+	private String objeto;
 
-	public Puja(int cantidad, Persona pujador) {
+	public Puja(int cantidad, Usuario pujador, String objeto) {
 		super();
 		this.cantidad = cantidad;
 		this.pujador = pujador;
+		this.objeto=objeto;
+	}
+
+	public String getObjeto() {
+		return objeto;
+	}
+
+	public void setObjeto(String objeto) {
+		this.objeto = objeto;
 	}
 
 	public int getCantidad() {
@@ -17,11 +27,11 @@ public class Puja {
 		this.cantidad = cantidad;
 	}
 
-	public Persona getPujador() {
+	public Usuario getPujador() {
 		return pujador;
 	}
 
-	public void setPujador(Persona pujador) {
+	public void setPujador(Usuario pujador) {
 		this.pujador = pujador;
 	}
 

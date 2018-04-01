@@ -1,12 +1,14 @@
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Subasta {
 	private String objetoPujado;
-	private Persona dueño;
-	Map<Integer, Puja> listadoPuja = new HashMap<Integer, Puja>();
+	private Usuario dueño;
+	List <Puja> listadoPuja = new ArrayList<Puja>();
 
-	public Subasta(String objetoPujado, Persona dueño) {
+	public Subasta(String objetoPujado, Usuario dueño) {
 		this.objetoPujado = objetoPujado;
 		this.dueño = dueño;
 
@@ -14,7 +16,7 @@ public class Subasta {
 
 	
 	public String printSubasta() {
-		return "Subasta [objetoPujado=" + objetoPujado + ", dueño=" + dueño + "]";
+		return "Subasta [objetoPujado=" + objetoPujado + ", dueño=" + dueño.getNombre() + "]";
 	}
 
 	public String getObjetoPujado() {
@@ -25,11 +27,11 @@ public class Subasta {
 		this.objetoPujado = objetoPujado;
 	}
 
-	public Persona getDueño() {
+	public Usuario getDueño() {
 		return dueño;
 	}
 
-	public void setDueño(Persona dueño) {
+	public void setDueño(Usuario dueño) {
 		this.dueño = dueño;
 	}
 }
