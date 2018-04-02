@@ -1,11 +1,11 @@
 
+
 public class Puja {
 	private int cantidad;
 	private Usuario pujador;
 	private String objeto;
-
+	
 	public Puja(int cantidad, Usuario pujador, String objeto) {
-		super();
 		this.cantidad = cantidad;
 		this.pujador = pujador;
 		this.objeto=objeto;

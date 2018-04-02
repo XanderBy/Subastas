@@ -7,7 +7,10 @@ public class Menu {
 	public static void MenuPrincipal() throws NumberFormatException, IOException {
 		int n=0,cantidad;
 		String nombre, nombreObjeto;
-		MetodosGenerales mg=new MetodosGenerales();
+		Usuario u1=new Usuario();
+		MetodosUsuario mu=new MetodosUsuario();
+		MetodosPuja mp= new MetodosPuja();
+		MetodosSubasta ms=new MetodosSubasta();
 		BufferedReader teclado=new BufferedReader(new InputStreamReader(System.in));
 		do {
 		System.out.println(
@@ -16,37 +19,48 @@ public class Menu {
 		n=Integer.parseInt(teclado.readLine());
 		switch(n) {
 		case 1:
-			mg.CrearUsuario();
+			mu.CrearUsuario();
 			break;
 		case 2:
-			mg.listaUsuarios();
+			mu.listaUsuarios();
 			System.out.println("Introduce el nombre del usuario que quieres eliminar");
 			nombre=teclado.readLine();
 			nombre.toLowerCase();
-			mg.eliminarUsuario(nombre);
+			mu.eliminarUsuario(nombre);
 			break;
 		case 3:
-			mg.listaUsuarios();
+			mu.listaUsuarios();
 			break;
 		case 4:
-			mg.listaUsuarios();
+			mu.listaUsuarios();
 			System.out.println("Escribe el nombre del usuario");
 			nombre = teclado.readLine();
 			
-			mg.crearSubasta(mg.listadoUsuarios.get(nombre),nombre);
+			ms.crearSubasta(mu.listadoUsuarios.get(nombre),nombre);
 			break;
 		case 5:
-			mg.listaUsuarios();
+			mu.listaUsuarios();
 			System.out.println("A que objeto quieres pujar");
 			nombreObjeto=teclado.readLine();
 			System.out.println("Escribe el nombre del usuario");
 			nombre=teclado.readLine();
 			System.out.println("Con que cantidad quieres pujar");
 			cantidad=Integer.parseInt(teclado.readLine());
-			Puja p=new Puja(cantidad, mg.listadoUsuarios.get(nombre), nombreObjeto);
-			mg.pujar( mg.listadoUsuarios.get(nombre), nombre, p);
+			Puja p=new Puja(cantidad, mu.listadoUsuarios.get(nombre), nombreObjeto);
+			if(mp.comprobacion(cantidad, mu.listadoUsuarios.get(nombre), nombreObjeto)==true) {
+				mp.pujar( mu.listadoUsuarios.get(nombre).listadoSubastas.get(nombreObjeto),  p);
+			}else {
+				System.out.println("La puja no ha sido aceptada");
+			}
+			
+			
 			break;
 		case 6:
+			System.out.println("De quien es el objeto quieres ver la mayor puja");
+			nombre=teclado.readLine();
+			System.out.println("De que objeto quieres ver la mayor puja");
+			nombreObjeto=teclado.readLine();
+			mp.pujaMayor(mu.listadoUsuarios.get(nombre).listadoSubastas.get(nombreObjeto));
 			break;
 		case 7:
 			break;

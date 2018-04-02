@@ -1,12 +1,15 @@
+import java.util.ArrayList;
 import java.util.HashMap;
+
 import java.util.Map;
 
 public class Usuario {
 	private int saldo;
 	private String nombre;
-	MetodosGenerales mg = new MetodosGenerales();
+
 	Map<String, Subasta> listadoSubastas = new HashMap<String, Subasta>();
 	Map<String, Subasta> listadoSubastasGanadas = new HashMap<String, Subasta>();
+
 	public Usuario() {
 
 	}
@@ -17,9 +20,9 @@ public class Usuario {
 
 	}
 
-	public String print(Usuario d) {
-		return "Usuario [getSaldo()=" + getSaldo() + ", getNombre()=" + getNombre() + ", SubastasPropias="
-				+ mg.listadoSubastas(d) + ", Subastas ganadas=" + "]";
+	public static String print(Usuario d) {
+		return "Usuario [getSaldo()=" + d.getSaldo() + ", getNombre()=" + d.getNombre() + ", SubastasPropias="
+				+ MetodosSubasta.listadoSubastas(d) + ", Subastas ganadas=" + "]";
 	}
 
 	public int getSaldo() {
