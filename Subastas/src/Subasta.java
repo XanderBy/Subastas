@@ -3,17 +3,17 @@ import java.util.List;
 
 public class Subasta {
 	private String objetoPujado;
-	private Usuario dueño;
+	private Usuario dueno;
 	List<Puja> listadoPuja = new ArrayList<Puja>();
 	
-	public Subasta(String objetoPujado, Usuario dueño) {
+	public Subasta(String objetoPujado, Usuario dueno) {
 		this.objetoPujado = objetoPujado;
-		this.dueño = dueño;
+		this.dueno = dueno;
 	}
 
 	
 	public String printSubasta() {
-		return "Subasta [objetoPujado=" + getObjetoPujado() + ", dueño=" + dueño.getNombre() + "]";
+		return "Subasta [objetoPujado=" + getObjetoPujado() + ", dueno=" + dueno.getNombre() + "]";
 	}
 
 	public String getObjetoPujado() {
@@ -24,12 +24,12 @@ public class Subasta {
 		this.objetoPujado = objetoPujado;
 	}
 
-	public Usuario getDueño() {
-		return dueño;
+	public Usuario getDueno() {
+		return dueno;
 	}
 
-	public void setDueño(Usuario dueño) {
-		this.dueño = dueño;
+	public void setDueno(Usuario dueno) {
+		this.dueno = dueno;
 	}
 
 
