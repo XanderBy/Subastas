@@ -20,6 +20,20 @@ public class MetodosUsuario {
 		Usuario u1 = new Usuario(credito, nombre);
 		guardarUsuario(nombre, u1);
 	}
+	public static String listadoSubastas(Usuario d) {
+		try {
+			Iterator it = d.listadoSubastas.keySet().iterator();
+			while (it.hasNext()) {
+				String key = (String) it.next();
+				return d.listadoSubastas.get(key).printSubasta();
+			}
+			
+		}catch(ClassCastException e) {
+			
+		}
+		return "";
+		
+	}
 	public void guardarSubastasGanadas() {
 		
 	}
