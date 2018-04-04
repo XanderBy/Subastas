@@ -1,7 +1,9 @@
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Subasta {
+	
 	private String objetoPujado;
 	private Usuario dueno;
 	List<Puja> listadoPuja = new ArrayList<Puja>();

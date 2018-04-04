@@ -3,21 +3,24 @@
 public class Puja {
 	private int cantidad;
 	private Usuario pujador;
-	private String objeto;
+	private Subasta subasta;
 	
-	public Puja(int cantidad, Usuario pujador, String objeto) {
+	public Puja(int cantidad, Usuario pujador, Subasta subasta) {
 		this.cantidad = cantidad;
 		this.pujador = pujador;
-		this.objeto=objeto;
+		this.subasta=subasta;
 	}
 
-	public String getObjeto() {
-		return objeto;
+
+	public Subasta getSubasta() {
+		return subasta;
 	}
 
-	public void setObjeto(String objeto) {
-		this.objeto = objeto;
+
+	public void setSubasta(Subasta subasta) {
+		this.subasta = subasta;
 	}
+
 
 	public int getCantidad() {
 		return cantidad;

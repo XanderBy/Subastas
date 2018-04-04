@@ -6,9 +6,9 @@ import java.util.Map;
 public class Usuario {
 	private int saldo;
 	private String nombre;
-
 	Map<String, Subasta> listadoSubastas = new HashMap<String, Subasta>();
 	Map<String, Subasta> listadoSubastasGanadas = new HashMap<String, Subasta>();
+
 
 	public Usuario() {
 

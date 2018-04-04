@@ -8,9 +8,6 @@ public class Menu {
 		int n=0,cantidad;
 		String nombre, nombreObjeto;
 		Usuario u1=new Usuario();
-		MetodosUsuario mu=new MetodosUsuario();
-		MetodosPuja mp= new MetodosPuja();
-		MetodosSubasta ms=new MetodosSubasta();
 		BufferedReader teclado=new BufferedReader(new InputStreamReader(System.in));
 		do {
 		System.out.println(

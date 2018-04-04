@@ -7,7 +7,6 @@ import java.util.Map;
 
 public class MetodosUsuario {
 	Map<String, Usuario> listadoUsuarios = new HashMap<String, Usuario>();
-
 	
 	public void CrearUsuario() throws IOException {
 		String nombre;
@@ -21,7 +20,12 @@ public class MetodosUsuario {
 		Usuario u1 = new Usuario(credito, nombre);
 		guardarUsuario(nombre, u1);
 	}
-
+	public void guardarSubastasGanadas() {
+		
+	}
+	public void guardarSubastasPropias() {
+		
+	}
 	public void guardarUsuario(String nombre, Usuario u) {
 		listadoUsuarios.put(nombre, u);
 
@@ -30,6 +34,7 @@ public class MetodosUsuario {
 	public void eliminarUsuario(String nombre) {
 		listadoUsuarios.remove(nombre);
 	}
+
 	public void listaUsuarios() {
 		Iterator it = listadoUsuarios.keySet().iterator();
 		while (it.hasNext()) {
@@ -38,5 +43,6 @@ public class MetodosUsuario {
 		}
 
 	}
+	
 
 }
