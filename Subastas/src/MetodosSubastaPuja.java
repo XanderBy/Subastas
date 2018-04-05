@@ -7,16 +7,29 @@ public class MetodosSubastaPuja {
 	public void pujar(Subasta s, int cantidad, Usuario u) {
 
 		try {
-			if (cantidad <= u.getSaldo() && u.getNombre() != s.getDueno().getNombre()
-					&& cantidad > s.listadoPuja.get(s.listadoPuja.size() - 1).getCantidad()) {
-				Puja p = new Puja(cantidad, u, s);
-				s.listadoPuja.add(p);
-				System.out.println("La puja ha sido realizada");
-			} else {
+			if (s.listadoPuja.size() > 0) {
 
-				System.out.println("No ha sido posible pujar");
+				if (cantidad <= u.getSaldo() && u.getNombre() != s.getDueno().getNombre()
+						&& cantidad > s.listadoPuja.get(s.listadoPuja.size() - 1).getCantidad()) {
+					Puja p = new Puja(cantidad, u, s);
+					s.listadoPuja.add(p);
+					System.out.println("La puja ha sido realizada");
+				} else {
+
+					System.out.println("No ha sido posible pujar");
+				}
+			} else {
+				if (cantidad <= u.getSaldo() && u.getNombre() != s.getDueno().getNombre()) {
+					Puja p = new Puja(cantidad, u, s);
+					s.listadoPuja.add(p);
+					System.out.println("La puja ha sido realizada");
+				} else {
+
+					System.out.println("No ha sido posible pujar");
+				}
 			}
 		} catch (NullPointerException e) {
+			System.out.println("Ha habido un error");
 		}
 
 	}
@@ -38,6 +51,9 @@ public class MetodosSubastaPuja {
 		Subasta s1 = new Subasta(objeto, u);
 		u.listadoSubastas.put(objeto, s1);
 		System.out.println("La subasta ha sido creada");
+	}
+	public void cerrarSubasta() {
+		
 	}
 
 }

@@ -6,7 +6,7 @@ public class Menu {
 
 	public static void MenuPrincipal() throws NumberFormatException, IOException {
 		int n = 0, cantidad;
-		String nombre, nombreObjeto;
+		String nombre, nombreObjeto, nombreDueño;
 		MetodosUsuario mu = new MetodosUsuario();
 		MetodosSubastaPuja msp = new MetodosSubastaPuja();
 		BufferedReader teclado = new BufferedReader(new InputStreamReader(System.in));
@@ -38,13 +38,15 @@ public class Menu {
 				break;
 			case 5:
 				mu.listaUsuarios();
+				System.out.println("Escribe el nombre del dueño");
+				nombreDueño = teclado.readLine();
 				System.out.println("A que objeto quieres pujar");
 				nombreObjeto = teclado.readLine();
 				System.out.println("Escribe el nombre del usuario");
 				nombre = teclado.readLine();
 				System.out.println("Con que cantidad quieres pujar");
 				cantidad = Integer.parseInt(teclado.readLine());
-				msp.pujar(mu.listadoUsuarios.get(nombre).listadoSubastas.get(nombreObjeto), cantidad,
+				msp.pujar(mu.listadoUsuarios.get(nombreDueño).listadoSubastas.get(nombreObjeto), cantidad,
 						mu.listadoUsuarios.get(nombre));
 
 				break;
