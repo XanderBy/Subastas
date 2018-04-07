@@ -52,7 +52,20 @@ public class MetodosSubastaPuja {
 		u.listadoSubastas.put(objeto, s1);
 		System.out.println("La subasta ha sido creada");
 	}
-	public void cerrarSubasta() {
+	public static boolean cerrarSubasta() throws IOException {
+		String respuesta;
+		BufferedReader teclado=new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("Seguro que quieres cerrar la subasta");
+		respuesta= teclado.readLine();
+		if(respuesta.equalsIgnoreCase("si")) {
+			return true;
+		}else {
+			System.out.println("La puja a sido cerrada, ya no se permite pujar mas");
+			return false;
+			
+		}
+		
+		
 		
 	}
 

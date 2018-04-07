@@ -7,6 +7,7 @@ public class Menu {
 	public static void MenuPrincipal() throws NumberFormatException, IOException {
 		int n = 0, cantidad;
 		String nombre, nombreObjeto, nombreDueño;
+		boolean cerrada = false;
 		MetodosUsuario mu = new MetodosUsuario();
 		MetodosSubastaPuja msp = new MetodosSubastaPuja();
 		BufferedReader teclado = new BufferedReader(new InputStreamReader(System.in));
@@ -46,8 +47,13 @@ public class Menu {
 				nombre = teclado.readLine();
 				System.out.println("Con que cantidad quieres pujar");
 				cantidad = Integer.parseInt(teclado.readLine());
-				msp.pujar(mu.listadoUsuarios.get(nombreDueño).listadoSubastas.get(nombreObjeto), cantidad,
-						mu.listadoUsuarios.get(nombre));
+				if(cerrada==true) {
+					System.out.println("La puja ya esta cerrada");
+				}else {
+					msp.pujar(mu.listadoUsuarios.get(nombreDueño).listadoSubastas.get(nombreObjeto), cantidad,
+							mu.listadoUsuarios.get(nombre));
+				}
+				
 
 				break;
 			case 6:
@@ -58,6 +64,7 @@ public class Menu {
 				msp.pujaMayor(mu.listadoUsuarios.get(nombre).listadoSubastas.get(nombreObjeto));
 				break;
 			case 7:
+				cerrada=MetodosSubastaPuja.cerrarSubasta();
 				break;
 			case 0:
 				System.exit(0);
