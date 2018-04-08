@@ -37,8 +37,8 @@ public class MetodosUsuario {
 	public void guardarSubastasGanadas() {
 		
 	}
-	public void guardarSubastasPropias() {
-		
+	public static void guardarSubastasPropias(Usuario u,String objeto, Subasta s) {
+		u.listadoSubastas.put(objeto, s);
 	}
 	public void guardarUsuario(String nombre, Usuario u) {
 		listadoUsuarios.put(nombre, u);

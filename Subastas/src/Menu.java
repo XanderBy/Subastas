@@ -31,6 +31,7 @@ public class Menu {
 				mu.listaUsuarios();
 				break;
 			case 4:
+				cerrada=false;
 				mu.listaUsuarios();
 				System.out.println("Escribe el nombre del usuario");
 				nombre = teclado.readLine();
@@ -57,6 +58,7 @@ public class Menu {
 
 				break;
 			case 6:
+				mu.listaUsuarios();
 				System.out.println("De quien es el objeto quieres ver la mayor puja");
 				nombre = teclado.readLine();
 				System.out.println("De que objeto quieres ver la mayor puja");
@@ -64,7 +66,12 @@ public class Menu {
 				msp.pujaMayor(mu.listadoUsuarios.get(nombre).listadoSubastas.get(nombreObjeto));
 				break;
 			case 7:
-				cerrada=MetodosSubastaPuja.cerrarSubasta();
+				mu.listaUsuarios();
+				System.out.println("Escribe el nombre del dueño");
+				nombreDueño = teclado.readLine();
+				System.out.println("A que objeto quieres pujar");
+				nombreObjeto = teclado.readLine();
+				cerrada=MetodosSubastaPuja.cerrarSubasta(mu.listadoUsuarios.get(nombreDueño), nombreObjeto);
 				break;
 			case 0:
 				System.exit(0);

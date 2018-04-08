@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class MetodosSubastaPuja {
+	MetodosUsuario mu = new MetodosUsuario();
 
 	public void pujar(Subasta s, int cantidad, Usuario u) {
 
@@ -51,22 +52,28 @@ public class MetodosSubastaPuja {
 		Subasta s1 = new Subasta(objeto, u);
 		u.listadoSubastas.put(objeto, s1);
 		System.out.println("La subasta ha sido creada");
+		MetodosUsuario.guardarSubastasPropias(mu.listadoUsuarios.get(nombre), objeto, s1);
+
 	}
-	public static boolean cerrarSubasta() throws IOException {
+
+	public static boolean cerrarSubasta(Usuario u, String objeto) throws IOException {
 		String respuesta;
-		BufferedReader teclado=new BufferedReader(new InputStreamReader(System.in));
+		BufferedReader teclado = new BufferedReader(new InputStreamReader(System.in));
 		System.out.println("Seguro que quieres cerrar la subasta");
-		respuesta= teclado.readLine();
-		if(respuesta.equalsIgnoreCase("si")) {
+		respuesta = teclado.readLine();
+		if (respuesta.equalsIgnoreCase("si")) {
+			if (u.listadoSubastas.get(objeto).listadoPuja.size() != 0) {
+				u.listadoSubastas.get(objeto).listadoPuja.get(u.listadoSubastas.get(objeto).listadoPuja.size() - 1)
+						.getPujador().listadoSubastasGanadas.put(objeto, u.listadoSubastas.get(objeto));
+			}
+
 			return true;
-		}else {
+		} else {
 			System.out.println("La puja a sido cerrada, ya no se permite pujar mas");
 			return false;
-			
+
 		}
-		
-		
-		
+
 	}
 
 }
