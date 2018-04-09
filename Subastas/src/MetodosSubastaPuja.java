@@ -65,6 +65,18 @@ public class MetodosSubastaPuja {
 			if (u.listadoSubastas.get(objeto).listadoPuja.size() != 0) {
 				u.listadoSubastas.get(objeto).listadoPuja.get(u.listadoSubastas.get(objeto).listadoPuja.size() - 1)
 						.getPujador().listadoSubastasGanadas.put(objeto, u.listadoSubastas.get(objeto));
+
+				u.listadoSubastas.get(objeto).listadoPuja.get(u.listadoSubastas.get(objeto).listadoPuja.size() - 1)
+						.getPujador()
+						.setSaldo(u.listadoSubastas.get(objeto).listadoPuja
+								.get(u.listadoSubastas.get(objeto).listadoPuja.size() - 1).getPujador().getSaldo()
+								- u.listadoSubastas.get(objeto).listadoPuja
+										.get(u.listadoSubastas.get(objeto).listadoPuja.size() - 1).getCantidad());
+
+				u.listadoSubastas.get(objeto).getDueno().setSaldo(
+						u.listadoSubastas.get(objeto).getDueno().getSaldo() + u.listadoSubastas.get(objeto).listadoPuja
+								.get(u.listadoSubastas.get(objeto).listadoPuja.size() - 1).getCantidad());
+
 			}
 
 			return true;

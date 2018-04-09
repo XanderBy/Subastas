@@ -38,7 +38,11 @@ public class MetodosUsuario {
 		
 	}
 	public static void guardarSubastasPropias(Usuario u,String objeto, Subasta s) {
+		try {
 		u.listadoSubastas.put(objeto, s);
+		}catch(NullPointerException e) {
+			
+		}
 	}
 	public void guardarUsuario(String nombre, Usuario u) {
 		listadoUsuarios.put(nombre, u);
