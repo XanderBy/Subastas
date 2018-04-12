@@ -77,6 +77,9 @@ public class MetodosSubastaPuja {
 						u.listadoSubastas.get(objeto).getDueno().getSaldo() + u.listadoSubastas.get(objeto).listadoPuja
 								.get(u.listadoSubastas.get(objeto).listadoPuja.size() - 1).getCantidad());
 
+				MetodosUsuario.guardarSubastasGanadas(u.listadoSubastas.get(objeto).listadoPuja.get(u.listadoSubastas.get(objeto).listadoPuja.size() - 1)
+						.getPujador(), u.listadoSubastas.get(objeto));
+				
 			}
 
 			return true;

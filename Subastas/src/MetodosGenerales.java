@@ -130,8 +130,24 @@ public class MetodosGenerales {
 		}
 	}
 
-	public void guardarDatosPersona() {
-
+	public static void guardarDatosPersona(MetodosUsuario mu) {
+		try {
+			FileOutputStream fs = new FileOutputStream("D:\\archivos\\subasta\\subastaPersonas.txt");
+			ObjectOutputStream oos = new ObjectOutputStream(fs);
+			Iterator it = mu.listadoUsuarios.keySet().iterator();
+			while (it.hasNext()) {
+				Integer key = (Integer) it.next();
+				Usuario u = new Usuario(mu.listadoUsuarios.get(key).getSaldo(),
+						mu.listadoUsuarios.get(key).getNombre());
+				oos.writeObject(u);
+			}
+			if (oos != null) {
+				oos.close();
+				fs.close();
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void leerDatosPersona() {
