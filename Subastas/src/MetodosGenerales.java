@@ -150,8 +150,41 @@ public class MetodosGenerales {
 		}
 	}
 
-	public void leerDatosPersona() {
-
+	public void leerDatosPersona(MetodosUsuario mu) {
+		try {
+			File f = null;
+			FileInputStream fe = null;
+			ObjectInputStream ois = null;
+			try {
+				f = new File("D:\\archivos\\subasta\\usuarios.txt");
+				if (f.exists()) {
+					fe = new FileInputStream(f);
+					ois = new ObjectInputStream(fe);
+					while (true) {
+						Usuario u = null;
+						u = (Usuario) ois.readObject();
+						mu.listadoUsuarios.put(u.getNombre(), u);
+					}
+				}
+			} catch (EOFException eof) {
+				System.out.println(" --------------------------");
+			} catch (FileNotFoundException fnf) {
+				System.err.println("Fichero no encontrado " + fnf);
+			} catch (IOException e) {
+				System.err.println("Se ha producido una IOException");
+				e.printStackTrace();
+			} catch (Throwable e) {
+				System.err.println("Error de programa: " + e);
+				e.printStackTrace();
+			} finally {
+				if (ois != null) {
+					ois.close();
+					fe.close();
+				}
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void actualizarFichero() {
